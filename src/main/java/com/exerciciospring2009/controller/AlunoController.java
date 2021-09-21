@@ -34,9 +34,9 @@ public class AlunoController {
 
     }
 
-    @DeleteMapping(value ="/deleta/{nome}")
-    public String remover(@PathVariable("nome") String nome) {
-        alunoService.remove(nome);
+    @DeleteMapping(value ="/deleta/{id}")
+    public String remover(@PathVariable("id") Integer id) {
+        alunoService.remove(id);
         return "deletado";
     }
 

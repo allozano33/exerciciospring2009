@@ -30,9 +30,9 @@ public class AlunoService {
         return null;
     }
 
-    public void remove (String nome) {
+    public void remove (Integer id) {
         for (Aluno aluno : alunoList) {
-            if (aluno.getNome().equalsIgnoreCase(nome)) {
+            if (aluno.getId().equals(id)) {
                 alunoList.remove(aluno);
             }
         }
