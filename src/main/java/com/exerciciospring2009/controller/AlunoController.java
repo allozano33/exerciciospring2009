@@ -24,8 +24,25 @@ public class AlunoController {
     }
 
     @GetMapping("/lista")
-    public @ResponseBody List<Aluno> listaAluno(){
+    public List<Aluno> listaAluno(){
         return alunoService.listar();
+    }
+
+    @GetMapping("/{nome}")
+    public Aluno obtemAluno(@PathVariable String nome){
+        return alunoService.buscarAluno(nome);
+
+    }
+
+    @DeleteMapping(value ="/deleta/{nome}")
+    public String remover(@PathVariable("nome") String nome) {
+        alunoService.remove(nome);
+        return "deletado";
+    }
+
+    @PutMapping(value = "/atualiza")
+    public void atualizar(@RequestBody Aluno payload) {
+        alunoService.atualizar(payload);
     }
 }
 

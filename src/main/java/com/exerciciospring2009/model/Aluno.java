@@ -7,6 +7,7 @@ import java.util.List;
 
 @Data
 public class Aluno {
+    private Integer id;
     private String nome;
     private String endereco;
     private Integer idade;

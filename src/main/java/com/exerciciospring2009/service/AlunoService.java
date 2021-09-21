@@ -13,13 +13,36 @@ public class AlunoService {
 
     public Aluno cadastra(Aluno aluno) {
         alunoList.add(aluno);
+        aluno.setId(alunoList.size());
         return aluno;
     }
 
     public List<Aluno> listar(){
-//        for (Aluno aluno: alunoList) {
-//            return aluno;
-//        }
         return alunoList;
+    }
+
+    public Aluno buscarAluno (String nome) {
+        for (Aluno aluno : alunoList) {
+            if (aluno.getNome().equalsIgnoreCase(nome)){
+                return aluno;
+            }
+        }
+        return null;
+    }
+
+    public void remove (String nome) {
+        for (Aluno aluno : alunoList) {
+            if (aluno.getNome().equalsIgnoreCase(nome)) {
+                alunoList.remove(aluno);
+            }
+        }
+    }
+
+    public void atualizar (Aluno aluno) {
+        for (int i = 0; i< alunoList.size();i++){
+            if (alunoList.get(i).getId().equals(aluno.getId())) {
+                alunoList.set(i,aluno);
+            }
+        }
     }
 }
